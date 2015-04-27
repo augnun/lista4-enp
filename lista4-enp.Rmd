@@ -1,0 +1,46 @@
+---
+title: "Lista 4 - Estatística Não-Paramétrica"
+author: "Augusto Cesar Ribeiro Nunes - 13/0103004"
+date: "April 27, 2015"
+output: html_document
+---
+
+#Questão 43
+
+> The data in Table 3.6 are a portion of the data obtained by Cooper et al. (1967). The purpose of their investigation was to determine whether hypnotic susceptibility as measured on objective scales can be changed with practice and training. The objective measures used were the Stanford Profile Scales of Hypnotic Susceptibility, forms I and II (Hilgard, Lauer, and Morgan (1963)). The subjects were administered these Profile Scales, both forms I and II, by a hypnotist other than the experimenter. Each subject was then seen by one of the authors for an extensive period of “hypnotic training.” After these sessions were concluded, each subject was retested by a different hypnotist (again not the experimenter) using equivalent forms of the Profile Scales, forms I and II . Table 3.6 gives the average score obtained on forms I and II prior to hypnotic training (X ) and the corresponding average score obtained on forms I and II after the training (Y ) for the six subjects. Note that a high (or low) score on the Profile Scales indicates a high (or low) degree of hypnotic susceptibility.
+Test the hypothesis of no change in hypnotic susceptibility versus the alternative that hypnotic susceptibility (as measured by the Profile Scales) can be increased with practice and training.
+
+##Hipóteses
+$H_0: \theta = 0$
+
+$H_1: \theta > 0$
+
+##Teste
+  Teste de Wilcoxon com p-valor = 0.05742, no limiar da rejeição da hipótese nula. Note que as diferenças de susceptibilidade no indivíduo 4 e 6 são iguais em módulo, portanto o teste apresenta empate e deve ser feita a correção apropriada na variância da aproximação assintótica. O Teste de Fisher, por outro lado, nos dá um p-valor  igual a 0.1094, que também nos possibilitaria a não-rejeição de $H_0$. Como este tem menor poder estatístico e é usado em geral como um teste confirmatório, não-rejeitamos $H_0$.
+
+
+#Questão 43
+> Change the value of $Y_3$ in Table 3.5 from 73 to 173. What effect does this outlying observation have on the calculations performed in Example 3.5? What does this suggest about the relative insensitivity of the sign tests to outliers? Construct an example in which changing one observation has an effect on the final decision regarding rejection or acceptance of $H_0$.
+
+  Sob as mesmas hipóteses - i.é. $H_1: \theta > 0$ - o teste com essa modificação nos dados pós-tratamento dão um p-valor ainda significativamente abaixo do limiar aceitável usualmente - 0.002039, segundo o R - e muito próximo do p-valor com o conjunto de dados original, que foi de 0.004553. Isso sugere que o Teste de Sinal de Fisher apresenta um certo nível de robustez com relação a _outliers_, em particular se comparado ao de Wilcoxon, já que uma modificação de uma ordem de magnitude em uma das observações do tratamento ainda rejeita a hipótese nula.
+  De fato, essa suspeita foi de certa forma fortalecida pelo fato de que não consegui obter uma modificação em uma observação qualquer do conjunto de dados citado que resultasse em conclusão diferente da original em termos de significância estatística.
+  
+#Questão 46
+> In an investigation to determine the effect of aspirin on bleeding time and platelet adhesion, Bick, Adams, and Schmalhorst (1976) studied the reactions of normal subjects to aspirin. A subset of their data is presented in Table 3.7, where the X observation for each subject is the bleeding time (in seconds) before ingestion of 600 mg of aspirin and the Y observation is the bleeding time (again in seconds) 2 h after administration of the aspirin.
+Perform the appropriate test of the hypothesis that a 600-mg dose of aspirin has no effect on bleeding time versus the alternative that it typically leads to an increase in bleeding time.
+
+##Hipóteses
+Já que queremos testar se a administração de 600mg de aspirina aumenta o tempo de sangramento do paciente, as hipóteses são as seguintes:
+$H_0: \theta = 0$
+
+$H_1: \theta > 0$
+
+##Teste e Conclusão
+O p-valor do Teste do Sinal de Fisher com os dados da Tabela 3.6 é de 0.08978, ou seja, não há razão para rejeitar a hipótese nula se assumirmos um nível de significância maior que 95%, como de costume. E portanto, não há evidência significativa que aponte para um aumento no tempo de sangramento nesse grupo de pacientes após a administração da dose de Aspirina. Utilizando o Teste do Sinal de Wilcoxon, chegamos a um p-valor = 0.014577, o que contradiz o resultado do Teste do Sinal de Fisher, resultado esperado, já que este é menos poderoso que aquele, apesar de requerer suposições mais gerais e ser mais robusto a _outliers_. Finalmente, o Teste-t nos dá p-valor = 0.008514, resultado que poderia ser usado em conjunto com o Teste do Sinal de Wilcoxon para de fato rejeitar $H_0$, e portanto descartar o resultado do Teste do Sinal de Fisher.
+
+#Questão 56
+> Obtain the exact P-value for the test based on B for the bleeding time data in Table 3.7. Compare this to the P-value obtained using the large sample approximation.
+
+
+#Questão 57
+> Obtain the exact P-value for the test of H0 : θ = 1000 versus H1 : θ > 1000 based on B for the salary data in Table 3.2.
