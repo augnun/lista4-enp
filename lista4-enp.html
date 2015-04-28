@@ -80,7 +80,7 @@ img {
 </div>
 <div id="teste" class="section level2">
 <h2>Teste</h2>
-<p>Teste de Wilcoxon com p-valor = 0.05742, no limiar da rejeição da hipótese nula. Note que as diferenças de suceptibilidade no indivíduo 4 e 6 são iguais em módulo, portanto o teste apresenta empate e deve ser feita a correção apropriada na variância da aproximação assintótica.</p>
+<p>Teste de Wilcoxon com p-valor = 0.05742, no limiar da rejeição da hipótese nula. Note que as diferenças de susceptibilidade no indivíduo 4 e 6 são iguais em módulo, portanto o teste apresenta empate e deve ser feita a correção apropriada na variância da aproximação assintótica. O Teste de Fisher, por outro lado, nos dá um p-valor igual a 0.1094, que também nos possibilitaria a não-rejeição de <span class="math">\(H_0\)</span>. Como este tem menor poder estatístico e é usado em geral como um teste confirmatório, não-rejeitamos <span class="math">\(H_0\)</span>.</p>
 </div>
 </div>
 <div id="questao-43-1" class="section level1">
@@ -88,6 +88,36 @@ img {
 <blockquote>
 <p>Change the value of <span class="math">\(Y_3\)</span> in Table 3.5 from 73 to 173. What effect does this outlying observation have on the calculations performed in Example 3.5? What does this suggest about the relative insensitivity of the sign tests to outliers? Construct an example in which changing one observation has an effect on the final decision regarding rejection or acceptance of <span class="math">\(H_0\)</span>.</p>
 </blockquote>
+<p>Sob as mesmas hipóteses - i.é. <span class="math">\(H_1: \theta &gt; 0\)</span> - o teste com essa modificação nos dados pós-tratamento dão um p-valor ainda significativamente abaixo do limiar aceitável usualmente - 0.002039, segundo o R - e muito próximo do p-valor com o conjunto de dados original, que foi de 0.004553. Isso sugere que o Teste de Sinal de Fisher apresenta um certo nível de robustez com relação a <em>outliers</em>, em particular se comparado ao de Wilcoxon, já que uma modificação de uma ordem de magnitude em uma das observações do tratamento ainda rejeita a hipótese nula. De fato, essa suspeita foi de certa forma fortalecida pelo fato de que não consegui obter uma modificação em uma observação qualquer do conjunto de dados citado que resultasse em conclusão diferente da original em termos de significância estatística.</p>
+</div>
+<div id="questao-46" class="section level1">
+<h1>Questão 46</h1>
+<blockquote>
+<p>In an investigation to determine the effect of aspirin on bleeding time and platelet adhesion, Bick, Adams, and Schmalhorst (1976) studied the reactions of normal subjects to aspirin. A subset of their data is presented in Table 3.7, where the X observation for each subject is the bleeding time (in seconds) before ingestion of 600 mg of aspirin and the Y observation is the bleeding time (again in seconds) 2 h after administration of the aspirin. Perform the appropriate test of the hypothesis that a 600-mg dose of aspirin has no effect on bleeding time versus the alternative that it typically leads to an increase in bleeding time.</p>
+</blockquote>
+<div id="hipoteses-1" class="section level2">
+<h2>Hipóteses</h2>
+<p>Já que queremos testar se a administração de 600mg de aspirina aumenta o tempo de sangramento do paciente, as hipóteses são as seguintes: <span class="math">\(H_0: \theta = 0\)</span></p>
+<p><span class="math">\(H_1: \theta &gt; 0\)</span></p>
+</div>
+<div id="teste-e-conclusao" class="section level2">
+<h2>Teste e Conclusão</h2>
+<p>O p-valor do Teste do Sinal de Fisher com os dados da Tabela 3.6 é de 0.08978, ou seja, não há razão para rejeitar a hipótese nula se assumirmos um nível de significância maior que 95%, como de costume. E portanto, não há evidência significativa que aponte para um aumento no tempo de sangramento nesse grupo de pacientes após a administração da dose de Aspirina. Utilizando o Teste do Sinal de Wilcoxon, chegamos a um p-valor = 0.014577, o que contradiz o resultado do Teste do Sinal de Fisher, resultado esperado, já que este é menos poderoso que aquele, apesar de requerer suposições mais gerais e ser mais robusto a <em>outliers</em>. Finalmente, o Teste-t nos dá p-valor = 0.008514, resultado que poderia ser usado em conjunto com o Teste do Sinal de Wilcoxon para de fato rejeitar <span class="math">\(H_0\)</span>, e portanto descartar o resultado do Teste do Sinal de Fisher.</p>
+</div>
+</div>
+<div id="questao-56" class="section level1">
+<h1>Questão 56</h1>
+<blockquote>
+<p>Obtain the exact P-value for the test based on B for the bleeding time data in Table 3.7. Compare this to the P-value obtained using the large sample approximation.</p>
+</blockquote>
+<p>Temos <span class="math">\(\Psi_i = 10\)</span>, o que nos dá um p-valor de 0.02868652, que nos possibilita rejeitar a hipótese nula com um nível de significância superior a 95%. Se utilizássemos a aproximação de grandes amostras, teríamos p-valor = 0.2097592, o que não nos permitiria rejeitar a hipótese nula.</p>
+</div>
+<div id="questao-57" class="section level1">
+<h1>Questão 57</h1>
+<blockquote>
+<p>Obtain the exact P-value for the test of <span class="math">\(H_0\)</span> : <span class="math">\(\theta\)</span> = 1000 versus <span class="math">\(H_1\)</span> : <span class="math">\(\theta\)</span> &gt; 1000 based on B for the salary data in Table 3.2.</p>
+</blockquote>
+<p>Temos <span class="math">\(\Psi_i = 8\)</span> (utilizando a convenção do livro, <span class="math">\(Y_i\)</span> são os salários da iniciativa privada, <span class="math">\(X_i\)</span> os do serviço público), e portanto um p-valor de 0.07299805, que não nos permite rejeitar a hipótese nula com nível de significância de 95%.</p>
 </div>
 
 

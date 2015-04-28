@@ -2,7 +2,7 @@
 title: "Lista 4 - Estatística Não-Paramétrica"
 author: "Augusto Cesar Ribeiro Nunes - 13/0103004"
 date: "April 27, 2015"
-output: html_document
+output: pdf_document
 ---
 
 #Questão 43
@@ -41,6 +41,10 @@ O p-valor do Teste do Sinal de Fisher com os dados da Tabela 3.6 é de 0.08978, 
 #Questão 56
 > Obtain the exact P-value for the test based on B for the bleeding time data in Table 3.7. Compare this to the P-value obtained using the large sample approximation.
 
+  Temos $\Psi_i = 10$, o que nos dá um p-valor de 0.02868652, que nos possibilita rejeitar a hipótese nula com um nível de significância superior a 95%. 
+  Se utilizássemos a aproximação de grandes amostras, teríamos p-valor = 0.2097592, o que não nos permitiria rejeitar a hipótese nula.
 
 #Questão 57
-> Obtain the exact P-value for the test of H0 : θ = 1000 versus H1 : θ > 1000 based on B for the salary data in Table 3.2.
+> Obtain the exact P-value for the test of $H_0$ : $\theta$ = 1000 versus $H_1$ : $\theta$ > 1000 based on B for the salary data in Table 3.2.
+
+Temos $\Psi_i = 8$ (utilizando a convenção do livro, $Y_i$ são os salários da iniciativa privada, $X_i$ os do serviço público), e portanto um p-valor de 0.07299805, que não nos permite rejeitar a hipótese nula com nível de significância de 95%.
